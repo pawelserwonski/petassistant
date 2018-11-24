@@ -1,11 +1,9 @@
 package ski.serwon.petassistant.model.feed;
 
 import lombok.*;
+import ski.serwon.petassistant.model.animal.Animal;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalTime;
 
 @Getter
@@ -18,6 +16,9 @@ public class Feed {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToOne
+    private Animal fedAnimal;
 
     private LocalTime time;
     private String fodderType;

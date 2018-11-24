@@ -1,11 +1,9 @@
 package ski.serwon.petassistant.model.vetvisit;
 
 import lombok.*;
+import ski.serwon.petassistant.model.animal.Animal;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Getter
@@ -18,6 +16,9 @@ public class VetVisit {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToOne
+    private Animal animal;
 
     private LocalDateTime visitDate;
     private String reason;

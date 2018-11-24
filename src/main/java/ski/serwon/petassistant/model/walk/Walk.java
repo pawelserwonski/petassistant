@@ -1,11 +1,9 @@
 package ski.serwon.petassistant.model.walk;
 
 import lombok.*;
+import ski.serwon.petassistant.model.animal.Animal;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -21,6 +19,9 @@ public class Walk {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+
+    @ManyToOne
+    private Animal walkedOutAnimal;
 
     private LocalDate startDate;    //when walks start
     private LocalDate endDate;
