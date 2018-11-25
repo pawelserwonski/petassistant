@@ -26,6 +26,7 @@ public class Walk {
     private LocalDate startDate;    //when walks start
     private LocalDate endDate;
     private LocalTime startTime;
+    @ElementCollection(targetClass = DayOfWeek.class)
     private List<DayOfWeek> daysOfWeek;
     private Double walkLength;
     private WalkUnit walkLengthUnit;
