@@ -25,7 +25,7 @@ public class FeedMapper {
 
     public FeedDTO mapModelToDTO(Feed model, FeedDTO dto) {
         dto.setId(model.getId());
-        dto.setFedAnimal(animalMapper.mapModelToDTO(model.getFedAnimal(), AnimalDTO.builder().build()));
+//        dto.setFedAnimal(animalMapper.mapModelToDTO(model.getFedAnimal(), AnimalDTO.builder().build()));
         dto.setTime(model.getTime());
         dto.setFodderType(model.getFodderType());
         dto.setPortionSize(model.getPortionSize());

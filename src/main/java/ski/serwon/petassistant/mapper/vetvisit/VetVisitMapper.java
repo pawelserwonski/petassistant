@@ -22,7 +22,7 @@ public class VetVisitMapper {
     
     public VetVisitDTO mapModelToDTO(VetVisit model, VetVisitDTO dto) {
         dto.setId(model.getId());
-        dto.setAnimal(animalMapper.mapModelToDTO(model.getAnimal(), AnimalDTO.builder().build()));
+//        dto.setAnimal(animalMapper.mapModelToDTO(model.getAnimal(), AnimalDTO.builder().build()));
         dto.setVisitDate(model.getVisitDate());
         dto.setReason(model.getReason());
         dto.setLocation(model.getLocation());

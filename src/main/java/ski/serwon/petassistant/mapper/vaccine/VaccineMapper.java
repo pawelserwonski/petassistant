@@ -23,7 +23,7 @@ public class VaccineMapper {
 
     public VaccineDTO mapModelToDTO(Vaccine model, VaccineDTO dto) {
         dto.setId(model.getId());
-        dto.setVaccinatedAnimal(animalMapper.mapModelToDTO(model.getVaccinatedAnimal(), AnimalDTO.builder().build()));
+//        dto.setVaccinatedAnimal(animalMapper.mapModelToDTO(model.getVaccinatedAnimal(), AnimalDTO.builder().build()));
         dto.setVisitDate(model.getVisitDate());
         dto.setSicknessType(model.getSicknessType());
         dto.setLocation(model.getLocation());

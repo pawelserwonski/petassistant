@@ -26,7 +26,7 @@ public class WalkMapper {
 
     public WalkDTO mapModelToDTO(Walk model, WalkDTO dto) {
         dto.setId(model.getId());
-        dto.setWalkedOutAnimal(animalMapper.mapModelToDTO(model.getWalkedOutAnimal(), AnimalDTO.builder().build()));
+//        dto.setWalkedOutAnimal(animalMapper.mapModelToDTO(model.getWalkedOutAnimal(), AnimalDTO.builder().build()));
         dto.setStartDate(model.getStartDate());
         dto.setEndDate(model.getEndDate());
         dto.setStartTime(model.getStartTime());

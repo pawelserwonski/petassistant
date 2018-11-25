@@ -1,5 +1,6 @@
 package ski.serwon.petassistant.controller.user;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,6 +18,13 @@ public class UserController {
     private AuthenticationUtil authenticationUtil;
     private UserMapper userMapper;
     private UserService userService;
+
+    @Autowired
+    public UserController(AuthenticationUtil authenticationUtil, UserMapper userMapper, UserService userService) {
+        this.authenticationUtil = authenticationUtil;
+        this.userMapper = userMapper;
+        this.userService = userService;
+    }
 
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {

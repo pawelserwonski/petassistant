@@ -1,5 +1,7 @@
 package ski.serwon.petassistant.mapper.animal;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.dto.animal.AnimalDTO;
 import ski.serwon.petassistant.dto.disease.DiseaseDTO;
@@ -30,9 +32,49 @@ public class AnimalMapper {
     private DiseaseMapper diseaseMapper;
     private VetVisitMapper vetVisitMapper;
 
+//    @Autowired
+//    public AnimalMapper(UserMapper userMapper, UserService userService, VaccineMapper vaccineMapper, WalkMapper walkMapper, FeedMapper feedMapper, DiseaseMapper diseaseMapper, VetVisitMapper vetVisitMapper) {
+//        this.userMapper = userMapper;
+//        this.userService = userService;
+//        this.vaccineMapper = vaccineMapper;
+//        this.walkMapper = walkMapper;
+//        this.feedMapper = feedMapper;
+//        this.diseaseMapper = diseaseMapper;
+//        this.vetVisitMapper = vetVisitMapper;
+//    }
+
+    @Autowired
+    public void setUserMapper(UserMapper userMapper) {
+        this.userMapper = userMapper;
+    }
+    @Autowired
+    public void setUserService(UserService userService) {
+        this.userService = userService;
+    }
+    @Autowired
+    public void setVaccineMapper(VaccineMapper vaccineMapper) {
+        this.vaccineMapper = vaccineMapper;
+    }
+    @Autowired
+    public void setWalkMapper(WalkMapper walkMapper) {
+        this.walkMapper = walkMapper;
+    }
+    @Autowired
+    public void setFeedMapper(FeedMapper feedMapper) {
+        this.feedMapper = feedMapper;
+    }
+    @Autowired
+    public void setDiseaseMapper(DiseaseMapper diseaseMapper) {
+        this.diseaseMapper = diseaseMapper;
+    }
+    @Autowired
+    public void setVetVisitMapper(VetVisitMapper vetVisitMapper) {
+        this.vetVisitMapper = vetVisitMapper;
+    }
+
     public AnimalDTO mapModelToDTO(Animal model, AnimalDTO dto) {
         dto.setId(model.getId());
-        dto.setOwner(userMapper.mapModelToDTO(model.getOwner(), UserDTO.builder().build()));
+//        dto.setOwner(userMapper.mapModelToDTO(model.getOwner(), UserDTO.builder().build()));
         dto.setSpecies(model.getSpecies());
         dto.setBreed(model.getBreed());
         dto.setBirthDate(model.getBirthDate());

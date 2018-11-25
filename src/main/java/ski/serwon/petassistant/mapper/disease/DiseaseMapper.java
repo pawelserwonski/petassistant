@@ -23,7 +23,7 @@ public class DiseaseMapper {
 
     public DiseaseDTO mapModelToDTO(Disease model, DiseaseDTO dto) {
         dto.setId(model.getId());
-        dto.setSickAnimal(animalMapper.mapModelToDTO(model.getSickAnimal(), AnimalDTO.builder().build()));
+//        dto.setSickAnimal(animalMapper.mapModelToDTO(model.getSickAnimal(), AnimalDTO.builder().build()));
         dto.setStartDate(model.getStartDate());
         dto.setEndDate(model.getEndDate());
         dto.setType(model.getType());
