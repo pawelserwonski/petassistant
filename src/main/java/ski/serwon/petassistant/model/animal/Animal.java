@@ -40,7 +40,7 @@ public class Animal {
     private List<Walk> walks;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "fedAnimal")
-    private List<Feed> feedings;
+    private List<Feed> feeds;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "sickAnimal")
     private List<Disease> diseasesHistory;
