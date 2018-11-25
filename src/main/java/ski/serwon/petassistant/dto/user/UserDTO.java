@@ -18,4 +18,6 @@ public class UserDTO {
     private String lastName;
     private String photo;
     private List<AnimalDTO> animals;
+    private String email;
+    private String password;
 }

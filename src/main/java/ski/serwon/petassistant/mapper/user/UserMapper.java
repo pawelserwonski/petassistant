@@ -34,6 +34,8 @@ public class UserMapper {
         model.setFirstName(dto.getFirstName());
         model.setLastName(dto.getLastName());
         model.setPhoto(dto.getPhoto());
+        model.setEmail(dto.getEmail());
+        model.setPassword(dto.getPassword());
         return model;
     }
 }
