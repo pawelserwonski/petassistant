@@ -22,6 +22,6 @@ public class VetVisit {
 
     private LocalDateTime visitDate;
     private String reason;
-    private String where;
+    private String location;
     private String vetOpinion;
 }

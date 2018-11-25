@@ -22,7 +22,7 @@ public class Vaccine {
 
     private LocalDateTime visitDate;
     private String sicknessType;
-    private String where;
+    private String location;
 
 
 }

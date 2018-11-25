@@ -20,6 +20,7 @@ public class User {
     private String lastName;
     private String email;
     private String password;
+    @Lob
     private String photo;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "owner")
