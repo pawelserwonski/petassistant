@@ -1,5 +1,6 @@
 package ski.serwon.petassistant.model.user;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 import ski.serwon.petassistant.model.animal.Animal;
 
@@ -24,5 +25,6 @@ public class User {
     private String photo;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "owner")
+    @JsonBackReference
     private List<Animal> animals;
 }

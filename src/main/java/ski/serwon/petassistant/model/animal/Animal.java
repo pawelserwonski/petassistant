@@ -1,5 +1,6 @@
 package ski.serwon.petassistant.model.animal;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 import ski.serwon.petassistant.model.disease.Disease;
 import ski.serwon.petassistant.model.feed.Feed;
@@ -25,12 +26,14 @@ public class Animal {
     private Long id;
 
     @ManyToOne
+    @JsonManagedReference
     private User owner;
 
     private String species;
     private String breed;
     private LocalDate birthDate;
     private String name;
+    @Lob
     private String photo;
 
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, mappedBy = "vaccinatedAnimal")

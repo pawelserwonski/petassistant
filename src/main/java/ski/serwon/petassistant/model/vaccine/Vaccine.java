@@ -1,5 +1,6 @@
 package ski.serwon.petassistant.model.vaccine;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import ski.serwon.petassistant.model.animal.Animal;
 
@@ -18,6 +19,7 @@ public class Vaccine {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     private Animal vaccinatedAnimal;
 
     private LocalDateTime visitDate;

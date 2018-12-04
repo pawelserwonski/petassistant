@@ -31,11 +31,11 @@ public class VaccineMapper {
     }
 
     public Vaccine mapDTOtoModel(VaccineDTO dto, Vaccine model) {
-        dto.setId(model.getId());
+        model.setId(dto.getId());
         model.setVaccinatedAnimal(animalService.getAnimalById(dto.getVaccinatedAnimal().getId()));
-        dto.setVisitDate(model.getVisitDate());
-        dto.setSicknessType(model.getSicknessType());
-        dto.setLocation(model.getLocation());
+        model.setVisitDate(dto.getVisitDate());
+        model.setSicknessType(dto.getSicknessType());
+        model.setLocation(dto.getLocation());
 
         return model;
     }

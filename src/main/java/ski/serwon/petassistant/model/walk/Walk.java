@@ -1,5 +1,6 @@
 package ski.serwon.petassistant.model.walk;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import ski.serwon.petassistant.model.animal.Animal;
 
@@ -21,6 +22,7 @@ public class Walk {
     private Long id;
 
     @ManyToOne
+    @JsonIgnore
     private Animal walkedOutAnimal;
 
     private LocalDate startDate;    //when walks start

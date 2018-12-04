@@ -22,3 +22,8 @@ spring:
             enable: true
             required: true
           auth: true
+jwt:
+  token:
+    secret: secret
+    algorithm: HS512
+    expiration: 10000
