@@ -29,7 +29,7 @@ public class UserController {
     @PostMapping
     public ResponseEntity<User> createUser(@RequestBody UserDTO userDTO) {
         User userToAdd = userMapper.mapDTOtoModel(userDTO, User.builder().build());
-        return ResponseEntity.ok(userToAdd);
+        return ResponseEntity.ok(this.userService.addUser(userToAdd));
     }
 
     @GetMapping
