@@ -23,8 +23,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class AnimalMapper {
-    
-    private UserMapper userMapper;
+
     private UserService userService;
     private VaccineMapper vaccineMapper;
     private WalkMapper walkMapper;
@@ -43,10 +42,7 @@ public class AnimalMapper {
 //        this.vetVisitMapper = vetVisitMapper;
 //    }
 
-    @Autowired
-    public void setUserMapper(UserMapper userMapper) {
-        this.userMapper = userMapper;
-    }
+
     @Autowired
     public void setUserService(UserService userService) {
         this.userService = userService;
