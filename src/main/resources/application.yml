@@ -27,3 +27,5 @@ jwt:
     secret: secret
     algorithm: HS512
     expiration: 10000
+server:
+  port: ${PORT:5000}
