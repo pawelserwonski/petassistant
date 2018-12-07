@@ -12,12 +12,10 @@ import ski.serwon.petassistant.service.animal.AnimalService;
 @Component
 public class VaccineMapper {
 
-    private AnimalMapper animalMapper;
     private AnimalService animalService;
 
     @Autowired
-    public VaccineMapper(AnimalMapper animalMapper, AnimalService animalService) {
-        this.animalMapper = animalMapper;
+    public VaccineMapper(AnimalService animalService) {
         this.animalService = animalService;
     }
 

@@ -15,12 +15,10 @@ import java.util.stream.Collectors;
 @Component
 public class WalkMapper {
 
-    private AnimalMapper animalMapper;
     private AnimalService animalService;
 
     @Autowired
-    public WalkMapper(AnimalMapper animalMapper, AnimalService animalService) {
-        this.animalMapper = animalMapper;
+    public WalkMapper(AnimalService animalService) {
         this.animalService = animalService;
     }
 

@@ -13,12 +13,10 @@ import ski.serwon.petassistant.service.animal.AnimalService;
 @Component
 public class FeedMapper {
 
-    private AnimalMapper animalMapper;
     private AnimalService animalService;
 
     @Autowired
-    public FeedMapper(AnimalMapper animalMapper, AnimalService animalService) {
-        this.animalMapper = animalMapper;
+    public FeedMapper(AnimalService animalService) {
         this.animalService = animalService;
     }
 
