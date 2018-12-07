@@ -30,7 +30,7 @@ public class LoginController {
 
     @PostMapping(produces = "application/json")
     public ResponseEntity<JwtTokenDTO> signin(@RequestBody UserDTO user) {
-        log.debug("Login controller entered; user: " + user.getEmail());
+        log.debug("Login controller entered;);
         final Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
