@@ -6,9 +6,9 @@ spring:
     database: postgresql
   datasource:
     platform: postgresql
-    url: jdbc:postgresql://ec2-184-72-239-186.compute-1.amazonaws.com:5432/d59ba8bt4krht8
-    username: prztvcxgpwpgfs
-    password: 908062f9343caed4cba1b9d4d9ae52aa6cf9b73e65d0e44b4c1c0a161f41cfdf
+    url: jdbc:postgresql://ec2-54-83-8-246.compute-1.amazonaws.com:5432/ddrg3d2k863tne
+    username: vwzilrfplhbycv
+    password: 9abd922d2a350a6c4fc5e5728e2d7ec59020ccd93c6dcb14a6da216697259cae
     driverClassName: org.postgresql.Driver
   mail:
     host: smtp.gmail.com
