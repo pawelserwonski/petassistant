@@ -56,4 +56,10 @@ public class VaccineController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity deleteVaccine(@PathVariable("id") Long id) {
+        this.vaccineService.deleteVaccine(id);
+        return ResponseEntity.ok().build();
+    }
 }

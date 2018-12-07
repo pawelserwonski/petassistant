@@ -10,4 +10,5 @@ public interface VetVisitService {
     public List<VetVisit> getVetVisitsOfAnimals(List<Animal> animals);
     public VetVisit getVetVisitById(Long id);
     public VetVisit addVetVisit(VetVisit vetVisitToAdd);
+    public void deleteVisit(Long id);
 }

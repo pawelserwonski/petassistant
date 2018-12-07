@@ -51,4 +51,10 @@ public class VetVisitController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity deleteVisit(@PathVariable("id") Long id) {
+        this.vetVisitService.deleteVisit(id);
+        return ResponseEntity.ok().build();
+    }
 }

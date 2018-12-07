@@ -10,4 +10,5 @@ public interface VaccineService {
     public List<Vaccine> getVaccinesOfAnimals(List<Animal> animals);
     public Vaccine getVaccineById(Long id);
     public Vaccine addVaccine(Vaccine vaccine);
+    public void deleteVaccine(Long id);
 }

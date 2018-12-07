@@ -26,4 +26,10 @@ public class WalkController {
         Walk walkToAdd = walkMapper.mapDTOtoModel(walkDTO, Walk.builder().build());
         return ResponseEntity.ok(walkService.addWalk(walkToAdd));
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity deleteWalk(@PathVariable("id") Long id) {
+        walkService.deleteWalk(id);
+        return ResponseEntity.ok().build();
+    }
 }

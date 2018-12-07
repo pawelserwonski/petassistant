@@ -31,4 +31,10 @@ public class FeedController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity deleteFeed(@PathVariable("id") Long id) {
+        this.feedService.deleteFeed(id);
+        return ResponseEntity.ok().build();
+    }
 }

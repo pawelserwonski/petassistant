@@ -9,4 +9,5 @@ public interface AnimalService {
     public Animal getAnimalById(Long id);
 //    public List<Animal> getAnimalsOfUser(User user);
     public Animal addAnimal(Animal animalToAdd);
+    public void deleteAnimal(Long id);
 }

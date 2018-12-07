@@ -40,4 +40,9 @@ public class FeedServiceImpl implements FeedService {
     public Feed addFeed(Feed feedToAdd) {
         return this.feedDao.save(feedToAdd);
     }
+
+    @Override
+    public void deleteFeed(Long id) {
+        this.feedDao.deleteById(id);
+    }
 }

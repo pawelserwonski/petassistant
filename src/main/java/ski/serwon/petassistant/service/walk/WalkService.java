@@ -9,4 +9,5 @@ public interface WalkService {
     public List<Walk> getWalksOfAnimal(Animal animal);
     public Walk getWalkById(Long id);
     public Walk addWalk(Walk walk);
+    public void deleteWalk(Long id);
 }

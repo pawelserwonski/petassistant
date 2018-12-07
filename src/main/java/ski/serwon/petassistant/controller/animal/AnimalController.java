@@ -71,4 +71,10 @@ public class AnimalController {
     }
 
     //TODO: add update
+
+    @DeleteMapping(path = "/{id}")
+    public ResponseEntity deleteAnimal(@PathVariable("id") Long id) {
+        this.animalService.deleteAnimal(id);
+        return ResponseEntity.ok().build();
+    }
 }

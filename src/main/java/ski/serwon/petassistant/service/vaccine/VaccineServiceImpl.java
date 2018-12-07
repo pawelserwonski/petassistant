@@ -45,4 +45,9 @@ public class VaccineServiceImpl implements VaccineService {
     public Vaccine addVaccine(Vaccine vaccine) {
         return this.vaccineDao.save(vaccine);
     }
+
+    @Override
+    public void deleteVaccine(Long id) {
+        this.vaccineDao.deleteById(id);
+    }
 }
