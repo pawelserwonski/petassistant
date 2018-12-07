@@ -3,13 +3,13 @@ spring:
     show-sql: true
     hibernate:
       ddl-auto: create-drop
-    database: postgresql
+    database: mysql
   datasource:
-    platform: postgresql
-    url: jdbc:postgresql://ec2-54-83-8-246.compute-1.amazonaws.com:5432/ddrg3d2k863tne
-    username: vwzilrfplhbycv
-    password: 9abd922d2a350a6c4fc5e5728e2d7ec59020ccd93c6dcb14a6da216697259cae
-    driverClassName: org.postgresql.Driver
+    platform: mysql
+    url: jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306
+    username: be951e7d1607c2
+    password: 9c1d1edd
+    driverClassName: com.mysql.jdbc.Driver
   mail:
     host: smtp.gmail.com
     port: 587
