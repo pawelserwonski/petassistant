@@ -2,14 +2,14 @@ spring:
   jpa:
     show-sql: true
     hibernate:
-      ddl-auto: create-drop
-    database: mysql
+      ddl-auto: update
+    database: postgresql
   datasource:
-    platform: mysql
-    url: jdbc:mysql://localhost:3306/pet_assistant?serverTimezone=UTC
-    username: petassistant
-    password: petassistant
-    driverClassName: com.mysql.jdbc.Driver
+    platform: postgresql
+    url: jdbc:postgresql://ec2-184-72-239-186.compute-1.amazonaws.com:5432/d59ba8bt4krht8
+    username: prztvcxgpwpgfs
+    password: 908062f9343caed4cba1b9d4d9ae52aa6cf9b73e65d0e44b4c1c0a161f41cfdf
+    driverClassName: org.postgresql.Driver
   mail:
     host: smtp.gmail.com
     port: 587
