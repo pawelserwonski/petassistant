@@ -1,5 +1,6 @@
 package ski.serwon.petassistant.controller.security;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -13,6 +14,7 @@ import ski.serwon.petassistant.security.JwtTokenService;
 
 import static ski.serwon.petassistant.security.JwtConstants.TOKEN_TYPE;
 
+@Slf4j
 @CrossOrigin
 @RestController
 @RequestMapping("/signin")
@@ -28,6 +30,7 @@ public class LoginController {
 
     @PostMapping(produces = "application/json")
     public ResponseEntity<JwtTokenDTO> signin(@RequestBody UserDTO user) {
+        log.debug("Login controller entered");
         final Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(user.getEmail(), user.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
