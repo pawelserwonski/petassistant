@@ -7,6 +7,7 @@ spring:
   datasource:
     platform: mysql
     url: jdbc:mysql://us-cdbr-iron-east-01.cleardb.net:3306
+    database:
     username: be951e7d1607c2
     password: 9c1d1edd
     driverClassName: com.mysql.jdbc.Driver
