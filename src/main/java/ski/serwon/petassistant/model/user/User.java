@@ -13,13 +13,15 @@ import java.util.List;
 @AllArgsConstructor
 @Builder
 @Entity
+@Table(name = "user", uniqueConstraints = @UniqueConstraint(
+        name = "email_user_uc", columnNames = "email"
+))
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String firstName;
     private String lastName;
-    @Column(unique = true)
     private String email;
     private String password;
     @Lob
