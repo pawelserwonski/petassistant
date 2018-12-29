@@ -29,6 +29,11 @@ public class VetVisitController {
         this.authenticationUtil = authenticationUtil;
     }
 
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<VetVisitDTO> getVetVisit(@PathVariable Long id) {
+        return ResponseEntity.ok(vetVisitMapper.mapModelToDTO(vetVisitService.getVetVisitById(id), VetVisitDTO.builder().build()));
+    }
+
     @PostMapping
     public ResponseEntity<VetVisit> createVetVisit(@RequestBody VetVisitDTO vetVisitDTO) {
         VetVisit visitToAdd = vetVisitMapper.mapDTOtoModel(vetVisitDTO, VetVisit.builder().build());
@@ -50,6 +55,16 @@ public class VetVisitController {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<VetVisit> updateVetVisit(@RequestBody VetVisitDTO vetVisitDTO, @PathVariable("id") Long id) {
+        VetVisit visitToUpdate = this.vetVisitService.getVetVisitById(id);
+        visitToUpdate.setLocation(vetVisitDTO.getLocation());
+        visitToUpdate.setReason(vetVisitDTO.getReason());
+        visitToUpdate.setVetOpinion(vetVisitDTO.getVetOpinion());
+        visitToUpdate.setVisitDate(vetVisitDTO.getVisitDate());
+        return ResponseEntity.ok(this.vetVisitService.updateVetVisit(visitToUpdate));
     }
 
     @DeleteMapping(path = "/{id}")

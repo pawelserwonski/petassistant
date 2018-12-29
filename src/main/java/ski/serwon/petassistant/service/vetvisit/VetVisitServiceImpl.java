@@ -50,4 +50,9 @@ public class VetVisitServiceImpl implements VetVisitService {
     public void deleteVisit(Long id) {
         vetVisitDao.deleteById(id);
     }
+
+    @Override
+    public VetVisit updateVetVisit(VetVisit vetVisit) {
+        return this.vetVisitDao.save(vetVisit);
+    }
 }

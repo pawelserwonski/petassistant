@@ -11,4 +11,5 @@ public interface VetVisitService {
     public VetVisit getVetVisitById(Long id);
     public VetVisit addVetVisit(VetVisit vetVisitToAdd);
     public void deleteVisit(Long id);
+    public VetVisit updateVetVisit(VetVisit vetVisit);
 }
