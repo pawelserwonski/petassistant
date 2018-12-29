@@ -10,4 +10,5 @@ public interface AnimalService {
 //    public List<Animal> getAnimalsOfUser(User user);
     public Animal addAnimal(Animal animalToAdd);
     public void deleteAnimal(Long id);
+    public Animal updateAnimal(Animal animalToUpdate);
 }

@@ -44,4 +44,9 @@ public class AnimalServiceImpl implements AnimalService {
     public void deleteAnimal(Long id) {
         this.animalDao.deleteById(id);
     }
+
+    @Override
+    public Animal updateAnimal(Animal animalToUpdate) {
+        return this.animalDao.save(animalToUpdate);
+    }
 }

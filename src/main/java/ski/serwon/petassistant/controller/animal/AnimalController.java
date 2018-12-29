@@ -70,7 +70,17 @@ public class AnimalController {
         }
     }
 
-    //TODO: add update
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Animal> updateAnimal(@RequestBody AnimalDTO animalDTO, @PathVariable("id") Long id) {
+        Animal updatedAnimal = animalService.getAnimalById(id);
+        updatedAnimal.setName(animalDTO.getName());
+        updatedAnimal.setBreed(animalDTO.getBreed());
+        updatedAnimal.setBirthDate(animalDTO.getBirthDate());
+        updatedAnimal.setSpecies(animalDTO.getSpecies());
+        updatedAnimal.setPhoto(animalDTO.getPhoto());
+
+        return ResponseEntity.ok(animalService.updateAnimal(updatedAnimal));
+    }
 
     @DeleteMapping(path = "/{id}")
     public ResponseEntity deleteAnimal(@PathVariable("id") Long id) {
