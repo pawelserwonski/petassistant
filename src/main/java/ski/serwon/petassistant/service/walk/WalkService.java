@@ -10,4 +10,5 @@ public interface WalkService {
     public Walk getWalkById(Long id);
     public Walk addWalk(Walk walk);
     public void deleteWalk(Long id);
+    public Walk updateWalk(Walk walkToUpdate);
 }

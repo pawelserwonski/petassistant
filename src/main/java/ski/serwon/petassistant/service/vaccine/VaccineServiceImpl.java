@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import ski.serwon.petassistant.dao.vaccine.VaccineDao;
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vaccine.Vaccine;
+import ski.serwon.petassistant.model.walk.Walk;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.util.List;
@@ -50,4 +51,10 @@ public class VaccineServiceImpl implements VaccineService {
     public void deleteVaccine(Long id) {
         this.vaccineDao.deleteById(id);
     }
+
+    @Override
+    public Vaccine updateVaccine(Vaccine vaccineToUpdate) {
+        return vaccineDao.save(vaccineToUpdate);
+    }
+
 }

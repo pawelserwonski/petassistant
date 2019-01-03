@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.feed.FeedDTO;
 import ski.serwon.petassistant.mapper.feed.FeedMapper;
 import ski.serwon.petassistant.model.feed.Feed;
+import ski.serwon.petassistant.model.feed.FodderUnit;
 import ski.serwon.petassistant.service.feed.FeedService;
 
 @RestController
@@ -36,5 +37,20 @@ public class FeedController {
     public ResponseEntity deleteFeed(@PathVariable("id") Long id) {
         this.feedService.deleteFeed(id);
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<FeedDTO> getFeed(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(feedMapper.mapModelToDTO(feedService.getFeedById(id), FeedDTO.builder().build()));
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Feed> updateFeed(@RequestBody FeedDTO feedDTO, @PathVariable("id") Long id) {
+        Feed feedToUpdate = feedService.getFeedById(id);
+        feedToUpdate.setFodderType(feedDTO.getFodderType());
+        feedToUpdate.setPortionSize(feedDTO.getPortionSize());
+        feedToUpdate.setTime(feedDTO.getTime());
+        feedToUpdate.setPortionSizeUnit(FodderUnit.valueOf(feedDTO.getPortionSizeUnit()));
+        return ResponseEntity.ok(feedService.updateFeed(feedToUpdate));
     }
 }

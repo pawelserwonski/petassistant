@@ -45,4 +45,9 @@ public class WalkServiceImpl implements WalkService {
     public void deleteWalk(Long id) {
         walkDao.deleteById(id);
     }
+
+    @Override
+    public Walk updateWalk(Walk walkToUpdate) {
+        return this.walkDao.save(walkToUpdate);
+    }
 }

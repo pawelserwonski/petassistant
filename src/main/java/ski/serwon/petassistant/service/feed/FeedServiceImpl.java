@@ -45,4 +45,9 @@ public class FeedServiceImpl implements FeedService {
     public void deleteFeed(Long id) {
         this.feedDao.deleteById(id);
     }
+
+    @Override
+    public Feed updateFeed(Feed feedToUpdate) {
+        return this.feedDao.save(feedToUpdate);
+    }
 }

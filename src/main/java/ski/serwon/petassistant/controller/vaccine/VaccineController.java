@@ -62,4 +62,18 @@ public class VaccineController {
         this.vaccineService.deleteVaccine(id);
         return ResponseEntity.ok().build();
     }
+
+    @GetMapping(path = "/{id}")
+    public ResponseEntity<VaccineDTO> getVaccine(@PathVariable("id") Long id) {
+        return ResponseEntity.ok(vaccineMapper.mapModelToDTO(this.vaccineService.getVaccineById(id), VaccineDTO.builder().build()));
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<Vaccine> updateVaccine(@RequestBody VaccineDTO vaccineDTO, @PathVariable("id") Long id) {
+        Vaccine vaccineToUpdate = vaccineService.getVaccineById(id);
+        vaccineToUpdate.setLocation(vaccineDTO.getLocation());
+        vaccineToUpdate.setSicknessType(vaccineDTO.getSicknessType());
+        vaccineToUpdate.setVisitDate(vaccineDTO.getVisitDate());
+        return ResponseEntity.ok(vaccineService.updateVaccine(vaccineToUpdate));
+    }
 }

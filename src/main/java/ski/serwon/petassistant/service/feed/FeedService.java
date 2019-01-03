@@ -10,4 +10,5 @@ public interface FeedService {
     public Feed getFeedById(Long id);
     public Feed addFeed(Feed feedToAdd);
     public void deleteFeed(Long id);
+    public Feed updateFeed(Feed feedToUpdate);
 }
