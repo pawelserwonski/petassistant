@@ -27,6 +27,9 @@ public class WalkController {
 
     @PostMapping
     public ResponseEntity<Walk> createWalk(@RequestBody WalkDTO walkDTO) {
+        if (walkDTO.getStartDate().isAfter(walkDTO.getEndDate())) {
+            return ResponseEntity.badRequest().build();
+        }
         Walk walkToAdd = walkMapper.mapDTOtoModel(walkDTO, Walk.builder().build());
         return ResponseEntity.ok(walkService.addWalk(walkToAdd));
     }

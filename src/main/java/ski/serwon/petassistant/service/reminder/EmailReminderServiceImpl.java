@@ -1,5 +1,6 @@
 package ski.serwon.petassistant.service.reminder;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -17,6 +18,7 @@ import java.util.Calendar;
 import java.util.Date;
 
 @Service
+@Slf4j
 public class EmailReminderServiceImpl implements EventReminderService {
 
     private JavaMailSender javaMailSender;
@@ -91,9 +93,11 @@ public class EmailReminderServiceImpl implements EventReminderService {
 
     private boolean sendMail(String to, String subject, String text) {
         try {
+            log.info("Sending email to " + to + " with subject " + subject);
             this.javaMailSender.send(createEmailMimeMessage(to, subject, text));
             return true;
         } catch (MessagingException | MailException e) {
+            log.error("Email could not be send due to exception " + e);
             return false;
         }
     }
