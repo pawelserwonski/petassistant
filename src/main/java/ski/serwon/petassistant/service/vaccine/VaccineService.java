@@ -4,6 +4,7 @@ import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vaccine.Vaccine;
 import ski.serwon.petassistant.model.walk.Walk;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface VaccineService {
@@ -13,4 +14,5 @@ public interface VaccineService {
     public Vaccine addVaccine(Vaccine vaccine);
     public void deleteVaccine(Long id);
     public Vaccine updateVaccine(Vaccine vaccineToUpdate);
+    public List<Vaccine> getVaccineByDate(LocalDate date);
 }

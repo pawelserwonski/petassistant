@@ -7,6 +7,7 @@ import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.feed.Feed;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.time.LocalTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -49,5 +50,10 @@ public class FeedServiceImpl implements FeedService {
     @Override
     public Feed updateFeed(Feed feedToUpdate) {
         return this.feedDao.save(feedToUpdate);
+    }
+
+    @Override
+    public List<Feed> getAllWithTimeBetween(LocalTime start, LocalTime end) {
+        return feedDao.findAllByTimeIsBetween(start, end);
     }
 }

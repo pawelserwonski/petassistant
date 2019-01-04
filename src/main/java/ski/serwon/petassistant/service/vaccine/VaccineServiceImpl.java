@@ -8,6 +8,7 @@ import ski.serwon.petassistant.model.vaccine.Vaccine;
 import ski.serwon.petassistant.model.walk.Walk;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -55,6 +56,11 @@ public class VaccineServiceImpl implements VaccineService {
     @Override
     public Vaccine updateVaccine(Vaccine vaccineToUpdate) {
         return vaccineDao.save(vaccineToUpdate);
+    }
+
+    @Override
+    public List<Vaccine> getVaccineByDate(LocalDate date) {
+        return vaccineDao.findAllByVisitDateBetween(date.atStartOfDay(), date.atTime(23, 59, 59));
     }
 
 }

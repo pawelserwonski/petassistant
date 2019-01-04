@@ -6,6 +6,7 @@ import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vaccine.Vaccine;
 
 import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -14,4 +15,5 @@ import java.util.Optional;
 public interface VaccineDao extends JpaRepository<Vaccine, Long> {
     public Optional<Vaccine> findById(Long id);
     public List<Vaccine> findAllByVaccinatedAnimalIn(List<Animal> animals);
+    public List<Vaccine> findAllByVisitDateBetween(LocalDateTime startDate, LocalDateTime endDate);
 }

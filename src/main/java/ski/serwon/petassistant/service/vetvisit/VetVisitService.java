@@ -3,6 +3,7 @@ package ski.serwon.petassistant.service.vetvisit;
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vetvisit.VetVisit;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface VetVisitService {
@@ -12,4 +13,5 @@ public interface VetVisitService {
     public VetVisit addVetVisit(VetVisit vetVisitToAdd);
     public void deleteVisit(Long id);
     public VetVisit updateVetVisit(VetVisit vetVisit);
+    public List<VetVisit> getVetVisitByDate(LocalDate localDate);
 }

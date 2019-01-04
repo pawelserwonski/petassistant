@@ -7,6 +7,8 @@ import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.walk.Walk;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.time.DayOfWeek;
+import java.time.LocalTime;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -49,5 +51,10 @@ public class WalkServiceImpl implements WalkService {
     @Override
     public Walk updateWalk(Walk walkToUpdate) {
         return this.walkDao.save(walkToUpdate);
+    }
+
+    @Override
+    public List<Walk> getAllByDaysOfWeekAndStartTimeBetween(DayOfWeek dayOfWeek, LocalTime start, LocalTime end) {
+        return walkDao.findAllByDaysOfWeekAndStartTimeBetween(dayOfWeek, start, end);
     }
 }

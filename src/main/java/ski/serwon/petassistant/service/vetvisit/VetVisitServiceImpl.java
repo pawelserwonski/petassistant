@@ -7,6 +7,7 @@ import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vetvisit.VetVisit;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -54,5 +55,10 @@ public class VetVisitServiceImpl implements VetVisitService {
     @Override
     public VetVisit updateVetVisit(VetVisit vetVisit) {
         return this.vetVisitDao.save(vetVisit);
+    }
+
+    @Override
+    public List<VetVisit> getVetVisitByDate(LocalDate localDate) {
+        return vetVisitDao.findAllByVisitDateBetween(localDate.atStartOfDay(), localDate.atTime(23,59,59));
     }
 }

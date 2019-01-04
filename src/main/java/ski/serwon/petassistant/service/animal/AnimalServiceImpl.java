@@ -8,6 +8,7 @@ import ski.serwon.petassistant.model.user.User;
 
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 @Service
 public class AnimalServiceImpl implements AnimalService {
@@ -48,5 +49,10 @@ public class AnimalServiceImpl implements AnimalService {
     @Override
     public Animal updateAnimal(Animal animalToUpdate) {
         return this.animalDao.save(animalToUpdate);
+    }
+
+    @Override
+    public List<Animal> getAnimalsByBirthdateDayOfYear(int dayOfYear) {
+        return this.animalDao.findAll().stream().filter(animal -> animal.getBirthDate().getDayOfYear() == dayOfYear).collect(Collectors.toList());
     }
 }
