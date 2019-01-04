@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ski.serwon.petassistant.dao.animal.AnimalDao;
 import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.user.User;
 
 import java.util.List;
 import java.util.NoSuchElementException;

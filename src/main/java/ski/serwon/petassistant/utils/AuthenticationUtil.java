@@ -6,7 +6,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.dao.user.UserDao;
 import ski.serwon.petassistant.model.user.User;
-import ski.serwon.petassistant.service.user.UserService;
 
 import java.util.Optional;
 

@@ -2,7 +2,6 @@ package ski.serwon.petassistant.service.vaccine;
 
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vaccine.Vaccine;
-import ski.serwon.petassistant.model.walk.Walk;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -15,7 +15,6 @@ import ski.serwon.petassistant.model.walk.Walk;
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 import java.util.Calendar;
-import java.util.Date;
 
 @Service
 @Slf4j

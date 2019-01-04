@@ -1,12 +1,10 @@
 package ski.serwon.petassistant.mapper.animal;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.dto.animal.AnimalDTO;
 import ski.serwon.petassistant.dto.disease.DiseaseDTO;
 import ski.serwon.petassistant.dto.feed.FeedDTO;
-import ski.serwon.petassistant.dto.user.UserDTO;
 import ski.serwon.petassistant.dto.vaccine.VaccineDTO;
 import ski.serwon.petassistant.dto.vetvisit.VetVisitDTO;
 import ski.serwon.petassistant.dto.walk.WalkDTO;
@@ -23,7 +21,7 @@ import java.util.stream.Collectors;
 
 @Component
 public class AnimalMapper {
-    
+
     private UserMapper userMapper;
     private UserService userService;
     private VaccineMapper vaccineMapper;
@@ -31,17 +29,6 @@ public class AnimalMapper {
     private FeedMapper feedMapper;
     private DiseaseMapper diseaseMapper;
     private VetVisitMapper vetVisitMapper;
-
-//    @Autowired
-//    public AnimalMapper(UserMapper userMapper, UserService userService, VaccineMapper vaccineMapper, WalkMapper walkMapper, FeedMapper feedMapper, DiseaseMapper diseaseMapper, VetVisitMapper vetVisitMapper) {
-//        this.userMapper = userMapper;
-//        this.userService = userService;
-//        this.vaccineMapper = vaccineMapper;
-//        this.walkMapper = walkMapper;
-//        this.feedMapper = feedMapper;
-//        this.diseaseMapper = diseaseMapper;
-//        this.vetVisitMapper = vetVisitMapper;
-//    }
 
     @Autowired
     public void setUserMapper(UserMapper userMapper) {
@@ -74,7 +61,6 @@ public class AnimalMapper {
 
     public AnimalDTO mapModelToDTO(Animal model, AnimalDTO dto) {
         dto.setId(model.getId());
-//        dto.setOwner(userMapper.mapModelToDTO(model.getOwner(), UserDTO.builder().build()));
         dto.setSpecies(model.getSpecies());
         dto.setBreed(model.getBreed());
         dto.setBirthDate(model.getBirthDate());

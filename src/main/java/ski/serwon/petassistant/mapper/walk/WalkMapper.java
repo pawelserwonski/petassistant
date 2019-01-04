@@ -2,7 +2,6 @@ package ski.serwon.petassistant.mapper.walk;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ski.serwon.petassistant.dto.animal.AnimalDTO;
 import ski.serwon.petassistant.dto.walk.WalkDTO;
 import ski.serwon.petassistant.mapper.animal.AnimalMapper;
 import ski.serwon.petassistant.model.walk.Walk;
@@ -15,18 +14,15 @@ import java.util.stream.Collectors;
 @Component
 public class WalkMapper {
 
-    private AnimalMapper animalMapper;
     private AnimalService animalService;
 
     @Autowired
-    public WalkMapper(AnimalMapper animalMapper, AnimalService animalService) {
-        this.animalMapper = animalMapper;
+    public WalkMapper(AnimalService animalService) {
         this.animalService = animalService;
     }
 
     public WalkDTO mapModelToDTO(Walk model, WalkDTO dto) {
         dto.setId(model.getId());
-//        dto.setWalkedOutAnimal(animalMapper.mapModelToDTO(model.getWalkedOutAnimal(), AnimalDTO.builder().build()));
         dto.setStartDate(model.getStartDate());
         dto.setEndDate(model.getEndDate());
         dto.setStartTime(model.getStartTime());

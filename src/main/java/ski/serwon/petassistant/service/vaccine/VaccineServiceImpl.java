@@ -5,7 +5,6 @@ import org.springframework.stereotype.Service;
 import ski.serwon.petassistant.dao.vaccine.VaccineDao;
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vaccine.Vaccine;
-import ski.serwon.petassistant.model.walk.Walk;
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
 import java.time.LocalDate;

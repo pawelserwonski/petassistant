@@ -1,8 +1,6 @@
 package ski.serwon.petassistant.dto.security;
 
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import jdk.nashorn.internal.objects.annotations.Getter;
 import lombok.Builder;
 import org.springframework.http.HttpStatus;
 

@@ -5,7 +5,6 @@ import org.springframework.stereotype.Repository;
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.disease.Disease;
 
-import javax.persistence.Id;
 import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
