@@ -53,8 +53,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-//        //TODO: swap encoders for password hashing
-//        return NoOpPasswordEncoder.getInstance();
         return new BCryptPasswordEncoder();
 
     }

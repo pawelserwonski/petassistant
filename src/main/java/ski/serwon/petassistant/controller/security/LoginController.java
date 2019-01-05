@@ -6,6 +6,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.security.JwtTokenDTO;
 import ski.serwon.petassistant.dto.user.UserDTO;
@@ -19,11 +20,13 @@ import static ski.serwon.petassistant.security.JwtConstants.TOKEN_TYPE;
 public class LoginController {
     private final AuthenticationManager authenticationManager;
     private final JwtTokenService tokenService;
+    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public LoginController(AuthenticationManager authenticationManager, JwtTokenService tokenService) {
+    public LoginController(AuthenticationManager authenticationManager, JwtTokenService tokenService, PasswordEncoder passwordEncoder) {
         this.authenticationManager = authenticationManager;
         this.tokenService = tokenService;
+        this.passwordEncoder = passwordEncoder;
     }
 
     @PostMapping(produces = "application/json")
