@@ -1,4 +1,4 @@
-package ski.serwon.petassistant.utils;
+package ski.serwon.petassistant.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
