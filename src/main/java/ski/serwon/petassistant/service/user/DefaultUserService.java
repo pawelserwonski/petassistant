@@ -9,12 +9,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-public class UserServiceImpl implements UserService {
+public class DefaultUserService implements UserService {
 
     private UserDao userDao;
 
     @Autowired
-    public UserServiceImpl(UserDao userDao) {
+    public DefaultUserService(UserDao userDao) {
         this.userDao = userDao;
     }
 

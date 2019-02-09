@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-public class FeedServiceImpl implements FeedService {
+public class DefaultFeedService implements FeedService {
 
     private FeedDao feedDao;
 
     @Autowired
-    public FeedServiceImpl(FeedDao feedDao) {
+    public DefaultFeedService(FeedDao feedDao) {
         this.feedDao = feedDao;
     }
 

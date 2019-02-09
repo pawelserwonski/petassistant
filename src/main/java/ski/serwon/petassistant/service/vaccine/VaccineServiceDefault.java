@@ -12,12 +12,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-public class VaccineServiceImpl implements VaccineService {
+public class VaccineServiceDefault implements VaccineService {
 
     private VaccineDao vaccineDao;
 
     @Autowired
-    public VaccineServiceImpl(VaccineDao vaccineDao) {
+    public VaccineServiceDefault(VaccineDao vaccineDao) {
         this.vaccineDao = vaccineDao;
     }
 

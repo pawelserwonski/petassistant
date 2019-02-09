@@ -10,11 +10,11 @@ import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 @Service
-public class AnimalServiceImpl implements AnimalService {
+public class DefaultAnimalService implements AnimalService {
     private AnimalDao animalDao;
 
     @Autowired
-    public AnimalServiceImpl(AnimalDao animalDao) {
+    public DefaultAnimalService(AnimalDao animalDao) {
         this.animalDao = animalDao;
     }
 

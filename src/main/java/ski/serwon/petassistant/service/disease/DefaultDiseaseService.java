@@ -10,12 +10,12 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 @Service
-public class DiseaseServiceImpl implements DiseaseService {
+public class DefaultDiseaseService implements DiseaseService {
 
     private DiseaseDao diseaseDao;
 
     @Autowired
-    public DiseaseServiceImpl(DiseaseDao diseaseDao) {
+    public DefaultDiseaseService(DiseaseDao diseaseDao) {
         this.diseaseDao = diseaseDao;
     }
 
