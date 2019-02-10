@@ -12,7 +12,7 @@ import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.configuration.QuartzConfiguration;
 import ski.serwon.petassistant.service.animal.AnimalService;
-import ski.serwon.petassistant.service.reminder.EventReminderService;
+import ski.serwon.petassistant.service.reminder.ReminderService;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -24,7 +24,7 @@ public class BirthdayJob implements Job {
     @Autowired
     private AnimalService animalService;
     @Autowired
-    private EventReminderService reminderService;
+    private ReminderService reminderService;
 
     @Override
     public void execute(JobExecutionContext jobExecutionContext) throws JobExecutionException {

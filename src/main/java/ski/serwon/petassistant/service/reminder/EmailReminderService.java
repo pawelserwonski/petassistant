@@ -18,12 +18,12 @@ import java.util.Calendar;
 
 @Service
 @Slf4j
-public class DefaultEmailReminderService implements EventReminderService {
+public class EmailReminderService implements ReminderService {
 
     private JavaMailSender javaMailSender;
 
     @Autowired
-    public DefaultEmailReminderService(JavaMailSender javaMailSender) {
+    public EmailReminderService(JavaMailSender javaMailSender) {
         this.javaMailSender = javaMailSender;
     }
 

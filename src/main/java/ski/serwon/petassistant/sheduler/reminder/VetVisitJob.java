@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.configuration.QuartzConfiguration;
-import ski.serwon.petassistant.service.reminder.EventReminderService;
+import ski.serwon.petassistant.service.reminder.ReminderService;
 import ski.serwon.petassistant.service.vetvisit.VetVisitService;
 
 import java.time.LocalDate;
@@ -22,7 +22,7 @@ import java.time.LocalTime;
 public class VetVisitJob implements Job {
 
     @Autowired
-    private EventReminderService reminderService;
+    private ReminderService reminderService;
     @Autowired
     private VetVisitService vetVisitService;
 
