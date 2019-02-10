@@ -11,7 +11,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional
 public interface VaccineDao extends JpaRepository<Vaccine, Long> {
     public Optional<Vaccine> findById(Long id);
     public List<Vaccine> findAllByVaccinatedAnimalIn(List<Animal> animals);

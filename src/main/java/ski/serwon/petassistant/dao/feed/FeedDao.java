@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional
 public interface FeedDao extends JpaRepository<Feed, Long> {
     public Optional<Feed> findById(Long id);
     public List<Feed> findAllByTimeIsBetween(LocalTime start, LocalTime end);

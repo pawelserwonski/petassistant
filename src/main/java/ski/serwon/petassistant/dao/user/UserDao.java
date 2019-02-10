@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional
 public interface UserDao extends JpaRepository<User, Long> {
     public Optional<User> findById(Long id);
 

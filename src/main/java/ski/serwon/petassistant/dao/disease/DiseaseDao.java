@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional
 public interface DiseaseDao extends JpaRepository<Disease, Long> {
     public Optional<Disease> findById(Long id);
 

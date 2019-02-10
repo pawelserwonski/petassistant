@@ -10,7 +10,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-@Transactional
 public interface AnimalDao extends JpaRepository<Animal, Long> {
     public List<Animal> findAllByIdIn(List<Long> id);
 
