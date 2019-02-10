@@ -29,65 +29,44 @@ public class EmailReminderService implements ReminderService {
 
     @Override
     public void remindBirthday(Animal animal) {
-        StringBuilder message = new StringBuilder();
-        message.append(getMessageHeader(animal.getOwner().getFirstName()));
-        message.append("We want to remind you that ");
-        message.append(animal.getName());
-        message.append(" birthday is today!\nHave you bought the gift already?");
-        message.append(getMessageFooter());
-
-        sendMail(animal.getOwner().getEmail(), "It's time to get the party started", message.toString());
+        String message = createMessage(animal.getOwner().getFirstName(),
+                "We want to remind you that " + animal.getName() + " birthday is today!",
+                "Have you bought the gift already?");
+        sendMail(animal.getOwner().getEmail(), "It's time to get the party started", message);
     }
 
     @Override
     public void remindFeed(Feed feed) {
-        StringBuilder message = new StringBuilder();
-        message.append(getMessageHeader(feed.getFedAnimal().getOwner().getFirstName()));
-        message.append(feed.getFedAnimal().getName());
-        message.append(" feeding time is coming. It's planned for ");
-        message.append(feed.getTime());
-        message.append(getMessageFooter());
-
-        sendMail(feed.getFedAnimal().getOwner().getEmail(), "Feeding time!", message.toString());
+        String message = createMessage(feed.getFedAnimal().getOwner().getFirstName(),
+                feed.getFedAnimal().getName() + " feeding time is coming. It's planned for " + feed.getTime());
+        sendMail(feed.getFedAnimal().getOwner().getEmail(), "Feeding time!", message);
     }
 
     @Override
     public void remindWalk(Walk walk) {
-        StringBuilder message = new StringBuilder();
-        message.append(getMessageHeader(walk.getWalkedOutAnimal().getOwner().getFirstName()));
-        message.append("Are you ready for a stroll?\n");
-        message.append(walk.getWalkedOutAnimal());
-        message.append(" walk is planned for ");
-        message.append(walk.getStartTime());
-        message.append(getMessageFooter());
-
-        sendMail(walk.getWalkedOutAnimal().getOwner().getEmail(), "Time to grab your shoes", message.toString());
+        String message = createMessage(walk.getWalkedOutAnimal().getOwner().getFirstName(),
+                "Are you ready for a stroll?",
+                walk.getWalkedOutAnimal() + " walk is planned for " + walk.getStartTime());
+        sendMail(walk.getWalkedOutAnimal().getOwner().getEmail(), "Time to grab your shoes", message);
     }
 
     @Override
     public void remindVetVisit(VetVisit vetVisit) {
-        StringBuilder message = new StringBuilder();
-        message.append(getMessageHeader(vetVisit.getAnimal().getOwner().getFirstName()));
-        message.append("We want to let you know that ");
-        message.append(vetVisit.getAnimal().getName());
-        message.append(" vet visit is coming.");
-        message.append(getMessageFooter());
-
-        sendMail(vetVisit.getAnimal().getOwner().getEmail(), "Vet visit is coming", message.toString());
+        String message = createMessage(vetVisit.getAnimal().getOwner().getFirstName(),
+                "We want to let you know that " + vetVisit.getAnimal().getName() + " vet visit is coming.");
+        sendMail(vetVisit.getAnimal().getOwner().getEmail(), "Vet visit is coming", message);
     }
 
     @Override
     public void remindVaccine(Vaccine vaccine) {
-        StringBuilder message = new StringBuilder();
-        message.append(getMessageHeader(vaccine.getVaccinatedAnimal().getOwner().getFirstName()));
-        message.append("We want to let you know that ");
-        message.append(vaccine.getVaccinatedAnimal().getName());
-        message.append(" ");
-        message.append(vaccine.getSicknessType());
-        message.append(" vaccine is coming.");
-        message.append(getMessageFooter());
+        String message = createMessage(vaccine.getVaccinatedAnimal().getOwner().getFirstName(),
+                "We want to let you know that " + vaccine.getVaccinatedAnimal().getName() + " " + vaccine.getSicknessType() + " vaccine is coming.");
+        sendMail(vaccine.getVaccinatedAnimal().getOwner().getEmail(), "Vaccine is coming", message);
+    }
 
-        sendMail(vaccine.getVaccinatedAnimal().getOwner().getEmail(), "Vaccine is coming", message.toString());
+
+    private static String createMessage(String firstName, String... contentRecords) {
+        return getMessageHeader(firstName) + getMessageContent(contentRecords) + getMessageFooter();
     }
 
     private boolean sendMail(String to, String subject, String text) {
@@ -101,6 +80,23 @@ public class EmailReminderService implements ReminderService {
         }
     }
 
+    private static String getMessageHeader(String name) {
+        return "Hello " + name + "!" + System.lineSeparator();
+    }
+
+    private static String getMessageContent(String... contentRecords) {
+        StringBuilder messageContent = new StringBuilder();
+        for(String record : contentRecords) {
+            messageContent.append(record);
+            messageContent.append(System.lineSeparator());
+        }
+        return messageContent.toString();
+    }
+
+    private static String getMessageFooter() {
+        return System.lineSeparator() + "Best Regards" + System.lineSeparator() + "PetAssistant Crew";
+    }
+
     private MimeMessage createEmailMimeMessage(String to, String subject, String text) throws MessagingException {
         MimeMessage email = this.javaMailSender.createMimeMessage();
         MimeMessageHelper emailHelper = new MimeMessageHelper(email);
@@ -111,13 +107,5 @@ public class EmailReminderService implements ReminderService {
         emailHelper.setFrom("petassistantpracainz@gmail.com");
         emailHelper.setSentDate(Calendar.getInstance().getTime());
         return email;
-    }
-
-    private static String getMessageHeader(String name) {
-        return "Hello " + name + "!" + System.lineSeparator() + System.lineSeparator();
-    }
-
-    private static String getMessageFooter() {
-        return "\n\nBest Regards\nPetAssistant Crew";
     }
 }
