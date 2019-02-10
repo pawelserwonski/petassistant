@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.vetvisit.VetVisitDTO;
 import ski.serwon.petassistant.mapper.vetvisit.VetVisitMapper;
 import ski.serwon.petassistant.model.vetvisit.VetVisit;
+import ski.serwon.petassistant.security.LoginDetailsService;
 import ski.serwon.petassistant.service.vetvisit.VetVisitService;
-import ski.serwon.petassistant.utils.AuthenticationUtil;
 
 import java.util.Comparator;
 import java.util.List;
@@ -20,13 +20,13 @@ import java.util.stream.Collectors;
 public class VetVisitController {
     private VetVisitMapper vetVisitMapper;
     private VetVisitService vetVisitService;
-    private AuthenticationUtil authenticationUtil;
+    private LoginDetailsService loginDetailsService;
 
     @Autowired
-    public VetVisitController(VetVisitMapper vetVisitMapper, VetVisitService vetVisitService, AuthenticationUtil authenticationUtil) {
+    public VetVisitController(VetVisitMapper vetVisitMapper, VetVisitService vetVisitService, LoginDetailsService loginDetailsService) {
         this.vetVisitMapper = vetVisitMapper;
         this.vetVisitService = vetVisitService;
-        this.authenticationUtil = authenticationUtil;
+        this.loginDetailsService = loginDetailsService;
     }
 
     @GetMapping(path = "/{id}")
@@ -43,7 +43,7 @@ public class VetVisitController {
     @GetMapping
     public ResponseEntity<List<VetVisitDTO>> getAllVetVisitsOfLoggedUser() {
         try {
-            List<VetVisit> vetVisitsToReturn = vetVisitService.getVetVisitsOfAnimals(authenticationUtil.getCurrentUser().getAnimals());
+            List<VetVisit> vetVisitsToReturn = vetVisitService.getVetVisitsOfAnimals(loginDetailsService.getCurrentUser().getAnimals());
             if (vetVisitsToReturn == null) {
                 return ResponseEntity.notFound().build();
             }

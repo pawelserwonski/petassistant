@@ -8,8 +8,8 @@ import ski.serwon.petassistant.dto.animal.AnimalDTO;
 import ski.serwon.petassistant.dto.user.UserDTO;
 import ski.serwon.petassistant.mapper.animal.AnimalMapper;
 import ski.serwon.petassistant.model.animal.Animal;
+import ski.serwon.petassistant.security.LoginDetailsService;
 import ski.serwon.petassistant.service.animal.AnimalService;
-import ski.serwon.petassistant.utils.AuthenticationUtil;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -21,19 +21,19 @@ public class AnimalController {
 
     private AnimalService animalService;
     private AnimalMapper animalMapper;
-    private AuthenticationUtil authenticationUtil;
+    private LoginDetailsService loginDetailsService;
 
     @Autowired
-    public AnimalController(AnimalService animalService, AnimalMapper animalMapper, AuthenticationUtil authenticationUtil) {
+    public AnimalController(AnimalService animalService, AnimalMapper animalMapper, LoginDetailsService loginDetailsService) {
         this.animalService = animalService;
         this.animalMapper = animalMapper;
-        this.authenticationUtil = authenticationUtil;
+        this.loginDetailsService = loginDetailsService;
     }
 
     @GetMapping
     public ResponseEntity<List<AnimalDTO>> getAnimalsOfLoggedUser() {
         try {
-            List<Animal> animalsToReturn = authenticationUtil.getCurrentUser().getAnimals();
+            List<Animal> animalsToReturn = loginDetailsService.getCurrentUser().getAnimals();
             if (animalsToReturn == null) {
                 return ResponseEntity.notFound().build();
             }
@@ -62,7 +62,7 @@ public class AnimalController {
     @PostMapping
     public ResponseEntity<Animal> createAnimal(@RequestBody AnimalDTO animalDTO) {
         try {
-            animalDTO.setOwner(UserDTO.builder().id(authenticationUtil.getCurrentUser().getId()).build());
+            animalDTO.setOwner(UserDTO.builder().id(loginDetailsService.getCurrentUser().getId()).build());
             Animal animalToAdd = animalMapper.mapDTOtoModel(animalDTO, Animal.builder().build());
             return ResponseEntity.ok(animalService.addAnimal(animalToAdd));
         } catch (Exception e) {

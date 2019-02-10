@@ -8,22 +8,22 @@ import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.user.UserDTO;
 import ski.serwon.petassistant.mapper.user.UserMapper;
 import ski.serwon.petassistant.model.user.User;
+import ski.serwon.petassistant.security.LoginDetailsService;
 import ski.serwon.petassistant.service.user.UserService;
-import ski.serwon.petassistant.utils.AuthenticationUtil;
 
 @RestController
 @RequestMapping("/user")
 @CrossOrigin
 public class UserController {
 
-    private AuthenticationUtil authenticationUtil;
+    private LoginDetailsService loginDetailsService;
     private UserMapper userMapper;
     private UserService userService;
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserController(AuthenticationUtil authenticationUtil, UserMapper userMapper, UserService userService, PasswordEncoder passwordEncoder) {
-        this.authenticationUtil = authenticationUtil;
+    public UserController(LoginDetailsService loginDetailsService, UserMapper userMapper, UserService userService, PasswordEncoder passwordEncoder) {
+        this.loginDetailsService = loginDetailsService;
         this.userMapper = userMapper;
         this.userService = userService;
         this.passwordEncoder = passwordEncoder;
@@ -39,7 +39,7 @@ public class UserController {
     @GetMapping
     public ResponseEntity<UserDTO> getLoggedUser() {
         try {
-            return ResponseEntity.ok(userMapper.mapModelToDTO(authenticationUtil.getCurrentUser(), UserDTO.builder().build()));
+            return ResponseEntity.ok(userMapper.mapModelToDTO(loginDetailsService.getCurrentUser(), UserDTO.builder().build()));
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

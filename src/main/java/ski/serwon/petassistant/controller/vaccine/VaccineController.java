@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.vaccine.VaccineDTO;
 import ski.serwon.petassistant.mapper.vaccine.VaccineMapper;
 import ski.serwon.petassistant.model.vaccine.Vaccine;
+import ski.serwon.petassistant.security.LoginDetailsService;
 import ski.serwon.petassistant.service.vaccine.VaccineService;
-import ski.serwon.petassistant.utils.AuthenticationUtil;
 
 import java.util.Comparator;
 import java.util.List;
@@ -20,13 +20,13 @@ import java.util.stream.Collectors;
 public class VaccineController {
     private VaccineMapper vaccineMapper;
     private VaccineService vaccineService;
-    private AuthenticationUtil authenticationUtil;
+    private LoginDetailsService loginDetailsService;
 
     @Autowired
-    public VaccineController(VaccineMapper vaccineMapper, VaccineService vaccineService, AuthenticationUtil authenticationUtil) {
+    public VaccineController(VaccineMapper vaccineMapper, VaccineService vaccineService, LoginDetailsService loginDetailsService) {
         this.vaccineMapper = vaccineMapper;
         this.vaccineService = vaccineService;
-        this.authenticationUtil = authenticationUtil;
+        this.loginDetailsService = loginDetailsService;
     }
 
 
@@ -43,7 +43,7 @@ public class VaccineController {
     @GetMapping
     public ResponseEntity<List<VaccineDTO>> getAllVaccinesOfLoggedUser() {
         try {
-            List<Vaccine> vaccinesToReturn = vaccineService.getVaccinesOfAnimals(authenticationUtil.getCurrentUser().getAnimals());
+            List<Vaccine> vaccinesToReturn = vaccineService.getVaccinesOfAnimals(loginDetailsService.getCurrentUser().getAnimals());
             if (vaccinesToReturn == null) {
                 return ResponseEntity.notFound().build();
             }
