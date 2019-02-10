@@ -2,6 +2,7 @@ package ski.serwon.petassistant.service.vaccine;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ski.serwon.petassistant.dao.vaccine.VaccineDao;
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vaccine.Vaccine;
@@ -22,16 +23,19 @@ public class VaccineServiceDefault implements VaccineService {
     }
 
     @Override
+    @Transactional
     public List<Vaccine> getVaccinesOfAnimal(Animal animal) {
         throw new NotImplementedException();
     }
 
     @Override
+    @Transactional
     public List<Vaccine> getVaccinesOfAnimals(List<Animal> animals) {
         return this.vaccineDao.findAllByVaccinatedAnimalIn(animals);
     }
 
     @Override
+    @Transactional
     public Vaccine getVaccineById(Long id) {
         Vaccine vaccineToReturn;
         try {
@@ -43,21 +47,25 @@ public class VaccineServiceDefault implements VaccineService {
     }
 
     @Override
+    @Transactional
     public Vaccine addVaccine(Vaccine vaccine) {
         return this.vaccineDao.save(vaccine);
     }
 
     @Override
+    @Transactional
     public void deleteVaccine(Long id) {
         this.vaccineDao.deleteById(id);
     }
 
     @Override
+    @Transactional
     public Vaccine updateVaccine(Vaccine vaccineToUpdate) {
         return vaccineDao.save(vaccineToUpdate);
     }
 
     @Override
+    @Transactional
     public List<Vaccine> getVaccineByDate(LocalDate date) {
         return vaccineDao.findAllByVisitDateBetween(date.atStartOfDay(), date.atTime(23, 59, 59));
     }

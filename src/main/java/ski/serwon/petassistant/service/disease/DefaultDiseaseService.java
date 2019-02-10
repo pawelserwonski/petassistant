@@ -2,6 +2,7 @@ package ski.serwon.petassistant.service.disease;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ski.serwon.petassistant.dao.disease.DiseaseDao;
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.disease.Disease;
@@ -20,11 +21,13 @@ public class DefaultDiseaseService implements DiseaseService {
     }
 
     @Override
+    @Transactional
     public List<Disease> getDiseasesOfAnimal(Animal animal) {
         return this.diseaseDao.findAllBySickAnimal(animal);
     }
 
     @Override
+    @Transactional
     public Disease getDiseaseById(Long id) {
         Disease toReturn;
         try {
@@ -36,6 +39,7 @@ public class DefaultDiseaseService implements DiseaseService {
     }
 
     @Override
+    @Transactional
     public Disease addDisease(Disease diseaseToAdd) {
         return this.diseaseDao.save(diseaseToAdd);
     }

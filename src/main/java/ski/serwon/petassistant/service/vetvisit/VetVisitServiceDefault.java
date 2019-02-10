@@ -2,6 +2,7 @@ package ski.serwon.petassistant.service.vetvisit;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ski.serwon.petassistant.dao.vetvisit.VetVisitDao;
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.vetvisit.VetVisit;
@@ -22,16 +23,19 @@ public class VetVisitServiceDefault implements VetVisitService {
     }
 
     @Override
+    @Transactional
     public List<VetVisit> getVetVisitsOfAnimal(Animal animal) {
         throw new NotImplementedException();
     }
 
     @Override
+    @Transactional
     public List<VetVisit> getVetVisitsOfAnimals(List<Animal> animals) {
         return this.vetVisitDao.findAllByAnimalIn(animals);
     }
 
     @Override
+    @Transactional
     public VetVisit getVetVisitById(Long id) {
         VetVisit vetVisit;
         try {
@@ -43,21 +47,25 @@ public class VetVisitServiceDefault implements VetVisitService {
     }
 
     @Override
+    @Transactional
     public VetVisit addVetVisit(VetVisit vetVisitToAdd) {
         return this.vetVisitDao.save(vetVisitToAdd);
     }
 
     @Override
+    @Transactional
     public void deleteVisit(Long id) {
         vetVisitDao.deleteById(id);
     }
 
     @Override
+    @Transactional
     public VetVisit updateVetVisit(VetVisit vetVisit) {
         return this.vetVisitDao.save(vetVisit);
     }
 
     @Override
+    @Transactional
     public List<VetVisit> getVetVisitByDate(LocalDate localDate) {
         return vetVisitDao.findAllByVisitDateBetween(localDate.atStartOfDay(), localDate.atTime(23,59,59));
     }
