@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface VetVisitService {
-    public List<VetVisit> getVetVisitsOfAnimal(Animal animal);
     public List<VetVisit> getVetVisitsOfAnimals(List<Animal> animals);
     public VetVisit getVetVisitById(Long id);
     public VetVisit addVetVisit(VetVisit vetVisitToAdd);

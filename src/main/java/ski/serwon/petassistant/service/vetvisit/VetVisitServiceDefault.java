@@ -24,12 +24,6 @@ public class VetVisitServiceDefault implements VetVisitService {
 
     @Override
     @Transactional
-    public List<VetVisit> getVetVisitsOfAnimal(Animal animal) {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    @Transactional
     public List<VetVisit> getVetVisitsOfAnimals(List<Animal> animals) {
         return this.vetVisitDao.findAllByAnimalIn(animals);
     }

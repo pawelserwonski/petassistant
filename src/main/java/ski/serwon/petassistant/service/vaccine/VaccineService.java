@@ -7,7 +7,6 @@ import java.time.LocalDate;
 import java.util.List;
 
 public interface VaccineService {
-    public List<Vaccine> getVaccinesOfAnimal(Animal animal);
     public List<Vaccine> getVaccinesOfAnimals(List<Animal> animals);
     public Vaccine getVaccineById(Long id);
     public Vaccine addVaccine(Vaccine vaccine);

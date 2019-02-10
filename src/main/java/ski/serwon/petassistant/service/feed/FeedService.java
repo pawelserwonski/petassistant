@@ -7,7 +7,6 @@ import java.time.LocalTime;
 import java.util.List;
 
 public interface FeedService {
-    public List<Feed> getFeedsOfAnimal(Animal animal);
     public Feed getFeedById(Long id);
     public Feed addFeed(Feed feedToAdd);
     public void deleteFeed(Long id);

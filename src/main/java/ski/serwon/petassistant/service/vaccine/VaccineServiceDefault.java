@@ -24,12 +24,6 @@ public class VaccineServiceDefault implements VaccineService {
 
     @Override
     @Transactional
-    public List<Vaccine> getVaccinesOfAnimal(Animal animal) {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    @Transactional
     public List<Vaccine> getVaccinesOfAnimals(List<Animal> animals) {
         return this.vaccineDao.findAllByVaccinatedAnimalIn(animals);
     }

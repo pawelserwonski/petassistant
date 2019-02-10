@@ -31,12 +31,6 @@ public class DefaultAnimalService implements AnimalService {
         return animalToReturn;
     }
 
-//    @Override
-//    public List<Animal> getAnimalsOfUser(User user) {
-//        return this.animalDao.findAllByIdIn();
-//    }
-
-
     @Override
     @Transactional
     public Animal addAnimal(Animal animalToAdd) {

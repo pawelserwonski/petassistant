@@ -24,12 +24,6 @@ public class DefaultFeedService implements FeedService {
 
     @Override
     @Transactional
-    public List<Feed> getFeedsOfAnimal(Animal animal) {
-        throw new NotImplementedException();
-    }
-
-    @Override
-    @Transactional
     public Feed getFeedById(Long id) {
         Feed feedToReturn;
         try {

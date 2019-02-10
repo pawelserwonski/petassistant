@@ -23,11 +23,6 @@ public class DefaultWalkService implements WalkService {
         this.walkDao = walkDao;
     }
 
-    @Override
-    @Transactional
-    public List<Walk> getWalksOfAnimal(Animal animal) {
-        throw new NotImplementedException();
-    }
 
     @Override
     @Transactional
