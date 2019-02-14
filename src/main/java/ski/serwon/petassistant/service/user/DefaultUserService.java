@@ -42,4 +42,9 @@ public class DefaultUserService implements UserService {
     public User addUser(User userToAdd) {
         return this.userDao.save(userToAdd);
     }
+
+    @Override
+    public void deleteUser(User userToDelete) {
+        this.userDao.delete(userToDelete);
+    }
 }
