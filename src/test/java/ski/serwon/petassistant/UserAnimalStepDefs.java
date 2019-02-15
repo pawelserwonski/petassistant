@@ -2,35 +2,79 @@ package ski.serwon.petassistant;
 
 import cucumber.api.Scenario;
 import cucumber.api.java.After;
+import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import org.junit.Assert;
-import org.junit.Ignore;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootContextLoader;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.ContextConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import org.springframework.test.context.web.WebAppConfiguration;
+import org.mockito.*;
+import ski.serwon.petassistant.dao.animal.AnimalDao;
+import ski.serwon.petassistant.dao.user.UserDao;
 import ski.serwon.petassistant.model.animal.Animal;
 import ski.serwon.petassistant.model.user.User;
 import ski.serwon.petassistant.service.animal.AnimalService;
+import ski.serwon.petassistant.service.animal.DefaultAnimalService;
+import ski.serwon.petassistant.service.user.DefaultUserService;
 import ski.serwon.petassistant.service.user.UserService;
 
 import java.time.LocalDate;
+import java.util.LinkedList;
+import java.util.List;
 
-@ContextConfiguration(classes = PetassistantApplication.class, loader = SpringBootContextLoader.class)
-@WebAppConfiguration
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyLong;
+
 public class UserAnimalStepDefs{
 
-    @Autowired
-    private UserService userService;
+    private List<User> userMockList = new LinkedList<>();
+    private List<Animal> animalMockList = new LinkedList<>();
 
-    @Autowired
+    @Mock
+    private UserDao userDao;
+    @Mock
+    private AnimalDao animalDao;
+
+    private UserService userService;
     private AnimalService animalService;
+
+    @Before
+    public void setUpMocks() {
+        MockitoAnnotations.initMocks(this);
+        userService = new DefaultUserService(userDao);
+        animalService = new DefaultAnimalService(animalDao);
+        setUpUserMock();
+        setUpAnimalMock();
+    }
+
+    private void setUpUserMock() {
+        Mockito.when(userDao.save(any(User.class))).then(invocationOnMock1 -> {
+            User added = invocationOnMock1.getArgument(0);
+            if (added.getId() == null) {
+                added.setId(Long.valueOf(userMockList.size()));
+                userMockList.add(added);
+            } else {
+                userMockList.set(added.getId().intValue(), added);
+            }
+            return added;
+        });
+        Mockito.when(userDao.findById(anyLong())).thenAnswer(invocationOnMock ->
+                userMockList.get(invocationOnMock.getArgument(0)));
+    }
+
+    private void setUpAnimalMock() {
+        Mockito.when(animalDao.save(any())).then(invocationOnMock -> {
+            Animal added = invocationOnMock.getArgument(0);
+            if (added.getId() == null) {
+                added.setId(Long.valueOf(animalMockList.size()));
+                animalMockList.add(added);
+            } else {
+                animalMockList.set(added.getId().intValue(), added);
+            }
+            return added;
+        });
+        Mockito.doNothing().when(animalDao).deleteById(anyLong());
+    }
 
     private User userProfile;
     private Animal animal;
@@ -82,10 +126,5 @@ public class UserAnimalStepDefs{
     @Then("^User's animals collection will not contain this animal$")
     public void userSAnimalsCollectionWillNotContainThisAnimal() {
         Assert.assertFalse(userProfile.getAnimals().contains(animal));
-    }
-
-    @After
-    public void deleteUserProfile(Scenario scenario) {
-        this.userService.deleteUser(this.userProfile);
     }
 }
