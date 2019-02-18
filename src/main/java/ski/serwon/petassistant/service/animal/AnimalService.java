@@ -1,6 +1,7 @@
 package ski.serwon.petassistant.service.animal;
 
 import ski.serwon.petassistant.model.animal.Animal;
+import ski.serwon.petassistant.model.user.User;
 
 import java.util.List;
 
@@ -10,4 +11,5 @@ public interface AnimalService {
     public void deleteAnimal(Long id);
     public Animal updateAnimal(Animal animalToUpdate);
     public List<Animal> getAnimalsByBirthdateDayOfYear(int dayOfYear);
+    public List<Animal> getAnimalsByOwner(User owner);
 }

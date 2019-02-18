@@ -1,7 +1,5 @@
 package ski.serwon.petassistant;
 
-import cucumber.api.Scenario;
-import cucumber.api.java.After;
 import cucumber.api.java.Before;
 import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
@@ -21,22 +19,26 @@ import ski.serwon.petassistant.service.user.UserService;
 import java.time.LocalDate;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.stream.Collectors;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.ArgumentMatchers.anyLong;
+import static org.mockito.ArgumentMatchers.*;
 
 public class UserAnimalStepDefs{
 
     private List<User> userMockList = new LinkedList<>();
     private List<Animal> animalMockList = new LinkedList<>();
 
+    private User userProfile;
+    private Animal animal;
+
+    private UserService userService;
+    private AnimalService animalService;
+
     @Mock
     private UserDao userDao;
     @Mock
     private AnimalDao animalDao;
 
-    private UserService userService;
-    private AnimalService animalService;
 
     @Before
     public void setUpMocks() {
@@ -48,6 +50,17 @@ public class UserAnimalStepDefs{
     }
 
     private void setUpUserMock() {
+        setUpUserSaveScenario();
+        setUpUserFindScenario();
+    }
+
+    private void setUpAnimalMock() {
+        setUpAnimalSaveScenario();
+        setUpAnimalFindScenario();
+        setUpAnimalDeleteScenario();
+    }
+
+    private void setUpUserSaveScenario() {
         Mockito.when(userDao.save(any(User.class))).then(invocationOnMock1 -> {
             User added = invocationOnMock1.getArgument(0);
             if (added.getId() == null) {
@@ -58,11 +71,14 @@ public class UserAnimalStepDefs{
             }
             return added;
         });
+    }
+
+    private void setUpUserFindScenario() {
         Mockito.when(userDao.findById(anyLong())).thenAnswer(invocationOnMock ->
                 userMockList.get(invocationOnMock.getArgument(0)));
     }
 
-    private void setUpAnimalMock() {
+    private void setUpAnimalSaveScenario() {
         Mockito.when(animalDao.save(any())).then(invocationOnMock -> {
             Animal added = invocationOnMock.getArgument(0);
             if (added.getId() == null) {
@@ -73,11 +89,22 @@ public class UserAnimalStepDefs{
             }
             return added;
         });
-        Mockito.doNothing().when(animalDao).deleteById(anyLong());
     }
 
-    private User userProfile;
-    private Animal animal;
+    private void setUpAnimalFindScenario() {
+        Mockito.when(animalDao.findAllByOwner(any())).thenAnswer(invocationOnMock -> {
+            User owner = invocationOnMock.getArgument(0);
+            return animalMockList.stream().filter(c -> c.getOwner() == owner).collect(Collectors.toList());
+        });
+    }
+
+    private void setUpAnimalDeleteScenario() {
+        Mockito.doAnswer(invocationOnMock -> {
+            Long id = invocationOnMock.getArgument(0);
+            animalMockList.remove(id.intValue());
+            return null;
+        }).when(animalDao).deleteById(anyLong());
+    }
 
     @Given("^An user profile$")
     public void anUserProfile() {
@@ -104,7 +131,7 @@ public class UserAnimalStepDefs{
 
     @Then("^This animal will be in user's animals$")
     public void thisAnimalWillBeInUserSAnimals() {
-        Assert.assertTrue(userProfile.getAnimals().contains(animal));
+        Assert.assertTrue(animalService.getAnimalsByOwner(userProfile).contains(animal));
     }
 
     @When("^I modify any animal's property$")
@@ -115,7 +142,7 @@ public class UserAnimalStepDefs{
 
     @Then("^User's animals collection will contain modified animal$")
     public void userSAnimalsCollectionWillContainModifiedAnimal() {
-        Assert.assertEquals(animal.getName(), userProfile.getAnimals().get(0).getName());
+        Assert.assertEquals(animal.getName(), animalService.getAnimalsByOwner(userProfile).get(0).getName());
     }
 
     @When("^I delete an animal$")
@@ -125,6 +152,6 @@ public class UserAnimalStepDefs{
 
     @Then("^User's animals collection will not contain this animal$")
     public void userSAnimalsCollectionWillNotContainThisAnimal() {
-        Assert.assertFalse(userProfile.getAnimals().contains(animal));
+        Assert.assertFalse(animalService.getAnimalsByOwner(userProfile).contains(animal));
     }
 }
