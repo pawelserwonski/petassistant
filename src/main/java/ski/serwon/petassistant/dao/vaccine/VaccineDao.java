@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface VaccineDao extends JpaRepository<Vaccine, Long> {
-    public Optional<Vaccine> findById(Long id);
-    public List<Vaccine> findAllByVaccinatedAnimalIn(List<Animal> animals);
-    public List<Vaccine> findAllByVisitDateBetween(LocalDateTime startDate, LocalDateTime endDate);
+    Optional<Vaccine> findById(Long id);
+    List<Vaccine> findAllByVaccinatedAnimalIn(List<Animal> animals);
+    List<Vaccine> findAllByVisitDateBetween(LocalDateTime startDate, LocalDateTime endDate);
 }

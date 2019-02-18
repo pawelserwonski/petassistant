@@ -10,12 +10,8 @@ import java.util.Optional;
 
 @Repository
 public interface AnimalDao extends JpaRepository<Animal, Long> {
-    public List<Animal> findAllByIdIn(List<Long> id);
-
-    public Optional<Animal> findById(Long id);
-
-    public List<Animal> findAllByOwner(User owner);
-
-    public List<Animal> findAll();
-
+    List<Animal> findAllByIdIn(List<Long> id);
+    Optional<Animal> findById(Long id);
+    List<Animal> findAllByOwner(User owner);
+    List<Animal> findAll();
 }

@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @Repository
 public interface VetVisitDao extends JpaRepository<VetVisit, Long> {
-    public Optional<VetVisit> findById(Long id);
-    public List<VetVisit> findAllByAnimalIn(List<Animal> animals);
-    public List<VetVisit> findAllByVisitDateBetween(LocalDateTime start, LocalDateTime end);
+    Optional<VetVisit> findById(Long id);
+    List<VetVisit> findAllByAnimalIn(List<Animal> animals);
+    List<VetVisit> findAllByVisitDateBetween(LocalDateTime start, LocalDateTime end);
 }
