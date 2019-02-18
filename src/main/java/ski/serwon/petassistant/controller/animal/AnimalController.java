@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.animal.AnimalDTO;
 import ski.serwon.petassistant.dto.user.UserDTO;
 import ski.serwon.petassistant.mapper.animal.AnimalMapper;
-import ski.serwon.petassistant.model.animal.Animal;
+import ski.serwon.petassistant.entity.animal.Animal;
 import ski.serwon.petassistant.security.LoginDetailsService;
 import ski.serwon.petassistant.service.animal.AnimalService;
 

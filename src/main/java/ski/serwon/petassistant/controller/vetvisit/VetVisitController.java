@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.vetvisit.VetVisitDTO;
 import ski.serwon.petassistant.mapper.vetvisit.VetVisitMapper;
-import ski.serwon.petassistant.model.vetvisit.VetVisit;
+import ski.serwon.petassistant.entity.vetvisit.VetVisit;
 import ski.serwon.petassistant.security.LoginDetailsService;
 import ski.serwon.petassistant.service.vetvisit.VetVisitService;
 

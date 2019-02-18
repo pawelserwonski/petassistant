@@ -1,8 +1,8 @@
-package ski.serwon.petassistant.model.disease;
+package ski.serwon.petassistant.entity.disease;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import ski.serwon.petassistant.model.animal.Animal;
+import ski.serwon.petassistant.entity.animal.Animal;
 
 import javax.persistence.*;
 import java.time.LocalDate;

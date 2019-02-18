@@ -7,7 +7,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.user.UserDTO;
 import ski.serwon.petassistant.mapper.user.UserMapper;
-import ski.serwon.petassistant.model.user.User;
+import ski.serwon.petassistant.entity.user.User;
 import ski.serwon.petassistant.security.LoginDetailsService;
 import ski.serwon.petassistant.service.user.UserService;
 

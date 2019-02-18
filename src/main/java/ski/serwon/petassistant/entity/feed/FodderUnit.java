@@ -1,4 +1,4 @@
-package ski.serwon.petassistant.model.feed;
+package ski.serwon.petassistant.entity.feed;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ski.serwon.petassistant.dao.user.UserDao;
-import ski.serwon.petassistant.model.user.User;
+import ski.serwon.petassistant.entity.user.User;
 
 import java.util.Optional;
 

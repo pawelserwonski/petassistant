@@ -5,8 +5,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.walk.WalkDTO;
 import ski.serwon.petassistant.mapper.walk.WalkMapper;
-import ski.serwon.petassistant.model.walk.Walk;
-import ski.serwon.petassistant.model.walk.WalkUnit;
+import ski.serwon.petassistant.entity.walk.Walk;
+import ski.serwon.petassistant.entity.walk.WalkUnit;
 import ski.serwon.petassistant.service.walk.WalkService;
 
 import java.time.DayOfWeek;

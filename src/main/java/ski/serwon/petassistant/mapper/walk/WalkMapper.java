@@ -3,9 +3,8 @@ package ski.serwon.petassistant.mapper.walk;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.dto.walk.WalkDTO;
-import ski.serwon.petassistant.mapper.animal.AnimalMapper;
-import ski.serwon.petassistant.model.walk.Walk;
-import ski.serwon.petassistant.model.walk.WalkUnit;
+import ski.serwon.petassistant.entity.walk.Walk;
+import ski.serwon.petassistant.entity.walk.WalkUnit;
 import ski.serwon.petassistant.service.animal.AnimalService;
 
 import java.time.DayOfWeek;

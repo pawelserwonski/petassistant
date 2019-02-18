@@ -1,8 +1,8 @@
-package ski.serwon.petassistant.model.user;
+package ski.serwon.petassistant.entity.user;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
-import ski.serwon.petassistant.model.animal.Animal;
+import ski.serwon.petassistant.entity.animal.Animal;
 
 import javax.persistence.*;
 import java.util.List;

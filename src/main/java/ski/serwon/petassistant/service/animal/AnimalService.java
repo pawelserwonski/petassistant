@@ -1,7 +1,7 @@
 package ski.serwon.petassistant.service.animal;
 
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.user.User;
+import ski.serwon.petassistant.entity.animal.Animal;
+import ski.serwon.petassistant.entity.user.User;
 
 import java.util.List;
 

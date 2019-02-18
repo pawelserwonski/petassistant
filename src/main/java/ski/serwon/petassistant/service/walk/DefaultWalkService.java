@@ -4,9 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ski.serwon.petassistant.dao.walk.WalkDao;
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.walk.Walk;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import ski.serwon.petassistant.entity.walk.Walk;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;

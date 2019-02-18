@@ -4,9 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ski.serwon.petassistant.dao.vetvisit.VetVisitDao;
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.vetvisit.VetVisit;
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
+import ski.serwon.petassistant.entity.animal.Animal;
+import ski.serwon.petassistant.entity.vetvisit.VetVisit;
 
 import java.time.LocalDate;
 import java.util.List;

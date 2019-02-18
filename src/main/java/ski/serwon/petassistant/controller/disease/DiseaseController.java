@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.disease.DiseaseDTO;
 import ski.serwon.petassistant.mapper.disease.DiseaseMapper;
-import ski.serwon.petassistant.model.disease.Disease;
+import ski.serwon.petassistant.entity.disease.Disease;
 import ski.serwon.petassistant.service.disease.DiseaseService;
 
 @RestController

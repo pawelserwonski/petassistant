@@ -1,7 +1,7 @@
 package ski.serwon.petassistant.service.disease;
 
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.disease.Disease;
+import ski.serwon.petassistant.entity.animal.Animal;
+import ski.serwon.petassistant.entity.disease.Disease;
 
 import java.util.List;
 

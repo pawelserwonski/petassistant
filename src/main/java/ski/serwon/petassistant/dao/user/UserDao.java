@@ -2,9 +2,8 @@ package ski.serwon.petassistant.dao.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ski.serwon.petassistant.model.user.User;
+import ski.serwon.petassistant.entity.user.User;
 
-import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 

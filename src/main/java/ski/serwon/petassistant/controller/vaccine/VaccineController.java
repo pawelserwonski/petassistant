@@ -6,7 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.vaccine.VaccineDTO;
 import ski.serwon.petassistant.mapper.vaccine.VaccineMapper;
-import ski.serwon.petassistant.model.vaccine.Vaccine;
+import ski.serwon.petassistant.entity.vaccine.Vaccine;
 import ski.serwon.petassistant.security.LoginDetailsService;
 import ski.serwon.petassistant.service.vaccine.VaccineService;
 

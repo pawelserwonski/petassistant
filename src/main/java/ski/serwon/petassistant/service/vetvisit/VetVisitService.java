@@ -1,7 +1,7 @@
 package ski.serwon.petassistant.service.vetvisit;
 
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.vetvisit.VetVisit;
+import ski.serwon.petassistant.entity.animal.Animal;
+import ski.serwon.petassistant.entity.vetvisit.VetVisit;
 
 import java.time.LocalDate;
 import java.util.List;

@@ -14,7 +14,7 @@ import ski.serwon.petassistant.mapper.user.UserMapper;
 import ski.serwon.petassistant.mapper.vaccine.VaccineMapper;
 import ski.serwon.petassistant.mapper.vetvisit.VetVisitMapper;
 import ski.serwon.petassistant.mapper.walk.WalkMapper;
-import ski.serwon.petassistant.model.animal.Animal;
+import ski.serwon.petassistant.entity.animal.Animal;
 import ski.serwon.petassistant.service.user.UserService;
 
 import java.util.stream.Collectors;

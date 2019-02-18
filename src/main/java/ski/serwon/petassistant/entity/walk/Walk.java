@@ -1,8 +1,8 @@
-package ski.serwon.petassistant.model.walk;
+package ski.serwon.petassistant.entity.walk;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
-import ski.serwon.petassistant.model.animal.Animal;
+import ski.serwon.petassistant.entity.animal.Animal;
 
 import javax.persistence.*;
 import java.time.DayOfWeek;

@@ -2,9 +2,8 @@ package ski.serwon.petassistant.dao.walk;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ski.serwon.petassistant.model.walk.Walk;
+import ski.serwon.petassistant.entity.walk.Walk;
 
-import javax.transaction.Transactional;
 import java.time.DayOfWeek;
 import java.time.LocalTime;
 import java.util.List;

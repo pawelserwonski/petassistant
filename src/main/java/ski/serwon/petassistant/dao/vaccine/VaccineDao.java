@@ -2,10 +2,9 @@ package ski.serwon.petassistant.dao.vaccine;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.vaccine.Vaccine;
+import ski.serwon.petassistant.entity.animal.Animal;
+import ski.serwon.petassistant.entity.vaccine.Vaccine;
 
-import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

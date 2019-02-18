@@ -6,8 +6,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import ski.serwon.petassistant.dto.feed.FeedDTO;
 import ski.serwon.petassistant.mapper.feed.FeedMapper;
-import ski.serwon.petassistant.model.feed.Feed;
-import ski.serwon.petassistant.model.feed.FodderUnit;
+import ski.serwon.petassistant.entity.feed.Feed;
+import ski.serwon.petassistant.entity.feed.FodderUnit;
 import ski.serwon.petassistant.service.feed.FeedService;
 
 @RestController

@@ -1,7 +1,6 @@
 package ski.serwon.petassistant.service.walk;
 
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.walk.Walk;
+import ski.serwon.petassistant.entity.walk.Walk;
 
 import java.time.DayOfWeek;
 import java.time.LocalTime;

@@ -3,8 +3,7 @@ package ski.serwon.petassistant.mapper.vaccine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.dto.vaccine.VaccineDTO;
-import ski.serwon.petassistant.mapper.animal.AnimalMapper;
-import ski.serwon.petassistant.model.vaccine.Vaccine;
+import ski.serwon.petassistant.entity.vaccine.Vaccine;
 import ski.serwon.petassistant.service.animal.AnimalService;
 
 @Component

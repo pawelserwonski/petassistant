@@ -3,9 +3,8 @@ package ski.serwon.petassistant.mapper.feed;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.dto.feed.FeedDTO;
-import ski.serwon.petassistant.mapper.animal.AnimalMapper;
-import ski.serwon.petassistant.model.feed.Feed;
-import ski.serwon.petassistant.model.feed.FodderUnit;
+import ski.serwon.petassistant.entity.feed.Feed;
+import ski.serwon.petassistant.entity.feed.FodderUnit;
 import ski.serwon.petassistant.service.animal.AnimalService;
 
 @Component

@@ -6,11 +6,11 @@ import org.springframework.mail.MailException;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.feed.Feed;
-import ski.serwon.petassistant.model.vaccine.Vaccine;
-import ski.serwon.petassistant.model.vetvisit.VetVisit;
-import ski.serwon.petassistant.model.walk.Walk;
+import ski.serwon.petassistant.entity.animal.Animal;
+import ski.serwon.petassistant.entity.feed.Feed;
+import ski.serwon.petassistant.entity.vaccine.Vaccine;
+import ski.serwon.petassistant.entity.vetvisit.VetVisit;
+import ski.serwon.petassistant.entity.walk.Walk;
 
 import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;

@@ -1,4 +1,4 @@
-package ski.serwon.petassistant.model.walk;
+package ski.serwon.petassistant.entity.walk;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

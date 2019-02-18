@@ -3,8 +3,7 @@ package ski.serwon.petassistant.mapper.vetvisit;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.dto.vetvisit.VetVisitDTO;
-import ski.serwon.petassistant.mapper.animal.AnimalMapper;
-import ski.serwon.petassistant.model.vetvisit.VetVisit;
+import ski.serwon.petassistant.entity.vetvisit.VetVisit;
 import ski.serwon.petassistant.service.animal.AnimalService;
 
 @Component

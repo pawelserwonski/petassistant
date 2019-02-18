@@ -1,13 +1,13 @@
-package ski.serwon.petassistant.model.animal;
+package ski.serwon.petassistant.entity.animal;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
-import ski.serwon.petassistant.model.disease.Disease;
-import ski.serwon.petassistant.model.feed.Feed;
-import ski.serwon.petassistant.model.user.User;
-import ski.serwon.petassistant.model.vaccine.Vaccine;
-import ski.serwon.petassistant.model.vetvisit.VetVisit;
-import ski.serwon.petassistant.model.walk.Walk;
+import ski.serwon.petassistant.entity.disease.Disease;
+import ski.serwon.petassistant.entity.feed.Feed;
+import ski.serwon.petassistant.entity.user.User;
+import ski.serwon.petassistant.entity.vaccine.Vaccine;
+import ski.serwon.petassistant.entity.vetvisit.VetVisit;
+import ski.serwon.petassistant.entity.walk.Walk;
 
 import javax.persistence.*;
 import java.time.LocalDate;

@@ -2,10 +2,9 @@ package ski.serwon.petassistant.dao.vetvisit;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.vetvisit.VetVisit;
+import ski.serwon.petassistant.entity.animal.Animal;
+import ski.serwon.petassistant.entity.vetvisit.VetVisit;
 
-import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;

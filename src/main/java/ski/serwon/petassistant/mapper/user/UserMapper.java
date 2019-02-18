@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 import ski.serwon.petassistant.dto.animal.AnimalDTO;
 import ski.serwon.petassistant.dto.user.UserDTO;
 import ski.serwon.petassistant.mapper.animal.AnimalMapper;
-import ski.serwon.petassistant.model.user.User;
+import ski.serwon.petassistant.entity.user.User;
 
 import java.util.stream.Collectors;
 

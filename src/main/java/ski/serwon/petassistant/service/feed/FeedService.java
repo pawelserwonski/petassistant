@@ -1,7 +1,6 @@
 package ski.serwon.petassistant.service.feed;
 
-import ski.serwon.petassistant.model.animal.Animal;
-import ski.serwon.petassistant.model.feed.Feed;
+import ski.serwon.petassistant.entity.feed.Feed;
 
 import java.time.LocalTime;
 import java.util.List;
