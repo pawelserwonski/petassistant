@@ -11,11 +11,8 @@ import java.util.Optional;
 
 @Repository
 public interface DiseaseDao extends JpaRepository<Disease, Long> {
-    public Optional<Disease> findById(Long id);
-
-    public List<Disease> findAllByIdIn(List<Long> ids);
-
-    public List<Disease> findAll();
-
-    public List<Disease> findAllBySickAnimal(Animal animal);
+    Optional<Disease> findById(Long id);
+    List<Disease> findAllByIdIn(List<Long> ids);
+    List<Disease> findAll();
+    List<Disease> findAllBySickAnimal(Animal animal);
 }

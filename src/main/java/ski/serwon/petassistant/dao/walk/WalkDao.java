@@ -12,6 +12,6 @@ import java.util.Optional;
 
 @Repository
 public interface WalkDao extends JpaRepository<Walk, Long> {
-    public Optional<Walk> findById(Long id);
-    public List<Walk> findAllByDaysOfWeekAndStartTimeBetween(DayOfWeek dayOfWeek, LocalTime start, LocalTime end);
+    Optional<Walk> findById(Long id);
+    List<Walk> findAllByDaysOfWeekAndStartTimeBetween(DayOfWeek dayOfWeek, LocalTime start, LocalTime end);
 }
