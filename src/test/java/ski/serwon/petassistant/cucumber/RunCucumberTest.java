@@ -1,4 +1,4 @@
-package ski.serwon.petassistant;
+package ski.serwon.petassistant.cucumber;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
