@@ -13,4 +13,5 @@ and diseases history. Application also sends e-mail reminders about saved events
 
 ## TODO
 - [ ] Configure Swagger
-- [ ] Behavioral Tests (in progress)
+- [ ] Behavioral Tests (in progress, behavioral-tests branch)
+- [ ] Unit Tests (in progress, unit-test branch)
