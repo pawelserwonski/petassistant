@@ -5,6 +5,7 @@ import ski.serwon.petassistant.entity.animal.Animal;
 import ski.serwon.petassistant.service.animal.AnimalService;
 
 import java.util.List;
+import java.util.Optional;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyLong;
@@ -18,8 +19,11 @@ public class AnimalServiceMockInitializer {
     }
 
     private static void setUpGetAnimalByIdScenario(AnimalService animalServiceMock, List<Animal> animalMockList) {
-        Mockito.when(animalServiceMock.getAnimalById(anyLong())).thenAnswer(invocationOnMock ->
-                animalMockList.get(invocationOnMock.getArgument(0)));
+        Mockito.when(animalServiceMock.getAnimalById(anyLong())).thenAnswer(invocationOnMock -> {
+            Optional<Animal> animal = animalMockList
+                    .stream().filter(c -> c.getId().equals(invocationOnMock.getArgument(0))).findFirst();
+            return animal.isPresent() ? animal.get() : null;
+        });
     }
 
     private static void setUpAddAnimalScenario(AnimalService animalServiceMock, List<Animal> animalMockList) {
@@ -34,8 +38,13 @@ public class AnimalServiceMockInitializer {
     private static void setUpUpdateAnimalScenario(AnimalService animalServiceMock, List<Animal> animalMockList) {
         Mockito.when(animalServiceMock.updateAnimal(any())).then(invocationOnMock -> {
             Animal edited = invocationOnMock.getArgument(0);
-            animalMockList.set(edited.getId().intValue(), edited);
-            return edited;
+            Optional<Animal> animal = animalMockList
+                    .stream().filter(c -> c.getId().equals(edited.getId())).findFirst();
+            if (animal.isPresent()) {
+                animalMockList.set(animalMockList.indexOf(animal.get()), edited);
+                return edited;
+            }
+            return null;
         });
     }
 
